@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1731412425539079019}
   - component: {fileID: 326121045695576470}
   - component: {fileID: 450724244542785555}
+  - component: {fileID: 8275858178697126291}
   m_Layer: 0
   m_Name: Envrmnt
   m_TagString: Environment
@@ -60,6 +61,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 37.31
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8275858178697126291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731412425539079016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f097640738d7ebb47a94e23b7534cc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1731412424929769519
 MeshCollider:
   m_ObjectHideFlags: 0

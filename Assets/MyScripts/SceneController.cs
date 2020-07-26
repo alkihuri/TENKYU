@@ -12,11 +12,18 @@ public class SceneController : MonoBehaviour
     }
     public void ChangeScene(string name)
     {
-        if (SceneManager.GetActiveScene().name == "Start")
+        if(name == "Start" || name == "Game")
         {
             GameStates.score = 0;
             GameStates.level = 1;
         }
+            
+        
         SceneManager.LoadScene(name);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

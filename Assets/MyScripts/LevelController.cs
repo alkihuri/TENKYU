@@ -13,7 +13,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         
-        speedOfRotation =0.04f;
+        speedOfRotation =0.0999f;
        
     }
 
@@ -21,14 +21,29 @@ public class LevelController : MonoBehaviour
     void Update()
     {
         Envrt = GameObject.FindGameObjectWithTag("Environment");
-        /*
-       horizontal = Input.GetAxis("Mouse Y") ;
-       vertical = Input.GetAxis("Mouse X") ;
-       */
-        horizontal = -Input.GetTouch(0).deltaPosition.x;
-        vertical = -Input.GetTouch(0).deltaPosition.y;
-        newX =   horizontal * speedOfRotation;
-        newZ =  vertical * speedOfRotation;
+
+
+#if UNITY_EDITOR
+
+        horizontal = Input.GetAxis("Mouse Y");
+        vertical = Input.GetAxis("Mouse X"); 
+
+#endif
+
+#if UNITY_ANDROID
+       horizontal = -Input.GetTouch(0).deltaPosition.x;
+       vertical = -Input.GetTouch(0).deltaPosition.y;
+#endif
+        if (Mathf.Abs(Envrt.transform.rotation.x) < 15)
+            newX = horizontal * speedOfRotation;
+        else
+            newX = 0;
+        if (Mathf.Abs(Envrt.transform.rotation.z) < 15)
+            newZ = vertical * speedOfRotation;
+        else
+            newZ = 0;
+
+        
         Envrt.transform.Rotate(newX, 0, newZ);
     }
    
